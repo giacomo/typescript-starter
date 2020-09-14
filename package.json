@@ -1,0 +1,32 @@
+{
+  "name": "typescript-starter",
+  "version": "1.0.0",
+  "description": "Base app to start using typescript in your projects instead of javascript.",
+  "main": "index.js",
+  "author": "Giacomo Barbalinardo<info@ready24it.eu>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --progress --color --mode development --config webpack.config.development.js",
+    "prebuild": "rimraf ./dist/*",
+    "build": "webpack --color --mode production --config webpack.config.production.js",
+    "lint": "eslint ./src/",
+    "lint-rule-timings": "cross-env TIMING=1 yarn lint"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.9.0",
+    "fork-ts-checker-notifier-webpack-plugin": "^3.0.0",
+    "fork-ts-checker-webpack-plugin": "^5.2.0",
+    "html-webpack-plugin": "^4.4.1",
+    "jest": "^26.4.2",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^8.0.3",
+    "tslib": "^2.0.1",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
