@@ -10,9 +10,11 @@
     "prebuild": "rimraf ./dist/*",
     "build": "webpack --color --mode production --config webpack.config.production.js",
     "lint": "eslint ./src/",
-    "lint-rule-timings": "cross-env TIMING=1 yarn lint"
+    "lint-rule-timings": "cross-env TIMING=1 yarn lint",
+    "test": "jest"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.13",
     "@typescript-eslint/eslint-plugin": "^4.1.0",
     "@typescript-eslint/parser": "^4.1.0",
     "cross-env": "^7.0.2",
@@ -22,6 +24,7 @@
     "html-webpack-plugin": "^4.4.1",
     "jest": "^26.4.2",
     "rimraf": "^3.0.2",
+    "ts-jest": "^26.3.0",
     "ts-loader": "^8.0.3",
     "tslib": "^2.0.1",
     "typescript": "^4.0.2",
