@@ -10,6 +10,7 @@
     "prebuild": "rimraf ./dist/*",
     "build": "webpack --color --mode production --config webpack.config.production.js",
     "lint": "eslint ./src/",
+    "lint:fix": "eslint ./src/ --fix",
     "lint-rule-timings": "cross-env TIMING=1 yarn lint",
     "test": "jest"
   },

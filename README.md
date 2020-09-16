@@ -26,3 +26,12 @@ Run tests with jest
 yarn run test
 ```
 
+Run eslint
+```
+yarn run lint
+```
+
+Run & fix eslint
+```
+yarn run lint:fix
+```
