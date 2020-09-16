@@ -45,7 +45,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.ts?$/,
+                test: /.tsx?$/,
                 use: [
                     { loader: 'ts-loader', options: { transpileOnly: true } }
                 ],
@@ -53,6 +53,6 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [".ts", ".js"]
+        extensions: [".tsx", ".ts", ".js"]
     }
 };
