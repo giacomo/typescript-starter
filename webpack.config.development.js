@@ -5,7 +5,8 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const main = [
-    './src/index.ts'
+    './src/index.ts',
+    './src/scss/styles.scss'
 ];
 
 module.exports = {
@@ -36,6 +37,21 @@ module.exports = {
                 test: /.tsx?$/,
                 use: [
                     { loader: 'ts-loader', options: { transpileOnly: true } }
+                ]
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'postcss-loader'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
                 ]
             }
         ]
