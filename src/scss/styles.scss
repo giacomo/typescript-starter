@@ -1,0 +1,11 @@
+@import "partials/variables";
+
+body {
+    background-color: darken($bgColor, 40%);
+    margin: 0;
+}
+
+// autoprefix test
+::placeholder {
+    color: gray;
+}

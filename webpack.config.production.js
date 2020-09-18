@@ -2,9 +2,11 @@
 const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 
 const main = [
-    './src/index.ts'
+    './src/index.ts',
+    './src/scss/styles.scss'
 ];
 
 module.exports = {
@@ -41,6 +43,10 @@ module.exports = {
                 minifyURLs: true,
             },
         }),
+        new HtmlWebpackTagsPlugin({
+            hash: true,
+            links: 'css/styles.css'
+        })
     ],
     module: {
         rules: [
@@ -49,6 +55,34 @@ module.exports = {
                 use: [
                     { loader: 'ts-loader', options: { transpileOnly: true } }
                 ],
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /.scss$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].css',
+                            outputPath: 'css/'
+                        }
+                    },
+                    {
+                        loader: 'extract-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'postcss-loader'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
             }
         ]
     },
