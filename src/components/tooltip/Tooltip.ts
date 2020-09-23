@@ -5,7 +5,7 @@ export class Tooltip extends Component {
     state = {
         test: 'Foobar',
         count: 0,
-        name: 'Somename',
+        name: 'Fjord',
     };
 
 

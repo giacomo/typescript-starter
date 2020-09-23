@@ -10,16 +10,17 @@ export abstract class Component extends HTMLElement {
         this.syncBindings();
 
         this.shadowRoot.innerHTML = this.shadowRoot.innerHTML.replaceAll(/\(click\)/g, 'data-click');
+        this.shadowRoot.innerHTML = this.shadowRoot.innerHTML.replaceAll(/\(value\)/g, 'data-value');
+
         const eventSelectors = this.selectAll('[data-click]');
-        for (const event of Array.from(eventSelectors)) {
-            event.addEventListener('click', () => {
-                const callback = event.getAttribute('data-click');
+        for (const eventSelector of Array.from(eventSelectors)) {
+            eventSelector.addEventListener('click', () => {
+                const callback = eventSelector.getAttribute('data-click');
                 this.binding[callback.replace('()', '')]();
                 this.syncBindings();
             })
         }
 
-        this.shadowRoot.innerHTML = this.shadowRoot.innerHTML.replaceAll(/\(value\)/g, 'data-value');
         const valueSelectors = this.selectAll('[data-value]');
         for (const event of Array.from(valueSelectors)) {
             const attrBindProperty = event.getAttribute('data-value');
