@@ -6,13 +6,13 @@ const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 
 const main = [
     './src/index.ts',
-    './src/scss/styles.scss'
+    './src/scss/styles.scss',
 ];
 
 module.exports = {
     context: process.cwd(), // to automatically find tsconfig.json
     entry: {
-        main: main
+        main,
     },
     output: {
         path: path.join(process.cwd(), 'dist'),
@@ -23,8 +23,8 @@ module.exports = {
             async: false,
             typescript: {
                 enabled: true,
-                memoryLimit: 4096
-            }
+                memoryLimit: 4096,
+            },
         }),
         new HtmlWebpackPlugin({
             hash: true,
@@ -45,20 +45,20 @@ module.exports = {
         }),
         new HtmlWebpackTagsPlugin({
             hash: true,
-            links: 'css/styles.css'
-        })
+            links: 'css/styles.css',
+        }),
     ],
     module: {
         rules: [
             {
                 test: /.tsx?$/,
                 use: [
-                    { loader: 'ts-loader', options: { transpileOnly: true } }
+                    {loader: 'ts-loader', options: {transpileOnly: true}},
                 ],
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /.scss$/,
@@ -67,26 +67,26 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].css',
-                            outputPath: 'css/'
-                        }
+                            outputPath: 'css/',
+                        },
                     },
                     {
-                        loader: 'extract-loader'
+                        loader: 'extract-loader',
                     },
                     {
-                        loader: 'css-loader'
+                        loader: 'css-loader',
                     },
                     {
-                        loader: 'postcss-loader'
+                        loader: 'postcss-loader',
                     },
                     {
-                        loader: 'sass-loader'
-                    }
-                ]
-            }
-        ]
+                        loader: 'sass-loader',
+                    },
+                ],
+            },
+        ],
     },
     resolve: {
-        extensions: [".tsx", ".ts", ".js"]
-    }
+        extensions: ['.tsx', '.ts', '.js'],
+    },
 };

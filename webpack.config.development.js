@@ -26,7 +26,7 @@ module.exports = {
                 files: './src/**/*.{ts,tsx,js,jsx}',
             },
         }),
-        new ForkTsCheckerNotifierWebpackPlugin({ title: 'TypeScript', excludeWarnings: false }),
+        new ForkTsCheckerNotifierWebpackPlugin({title: 'TypeScript', excludeWarnings: false}),
         new HtmlWebpackPlugin({
             inject: true,
             template: 'src/index.html',
@@ -37,7 +37,7 @@ module.exports = {
             {
                 test: /.tsx?$/,
                 use: [
-                    { loader: 'ts-loader', options: { transpileOnly: true } },
+                    {loader: 'ts-loader', options: {transpileOnly: true}},
                 ],
             },
             {

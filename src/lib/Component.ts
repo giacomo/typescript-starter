@@ -56,7 +56,7 @@ export abstract class Component extends HTMLElement {
 
     abstract get template(): string;
 
-    get binding(): Record<string, CallableFunction> {
+    get binding(): Record<string, () => void> {
         return {};
     }
 

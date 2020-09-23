@@ -13,7 +13,7 @@ export class Tooltip extends Component {
         return html;
     }
 
-    get binding(): Record<string, CallableFunction> {
+    get binding(): Record<string, () => void> {
         return {
             updateCounter: () => {
                 this.state.count++;
