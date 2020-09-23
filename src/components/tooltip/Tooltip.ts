@@ -1,9 +1,9 @@
 import {Component} from '../../lib/Component';
 import html from './Tooltip.html';
-import {TooltipStateType} from '../../types/TooltipStateType';
+import {TooltipState} from '../../states/TooltipState';
 
 export class Tooltip extends Component {
-    state: TooltipStateType = {
+    state: TooltipState = {
         test: 'Foobar',
         count: 0,
         name: 'Fjord',

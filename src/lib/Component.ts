@@ -1,7 +1,7 @@
-import {TooltipStateType} from '../types/TooltipStateType';
+import {StateType} from './StateType';
 
 export abstract class Component extends HTMLElement {
-    public state: TooltipStateType = null;
+    public state: StateType = {};
 
     constructor() {
         super();
