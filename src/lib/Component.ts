@@ -1,5 +1,8 @@
+import {TooltipStateType} from '../types/TooltipStateType';
+
 export abstract class Component extends HTMLElement {
-    public state: Record<string, unknown> = {};
+    public state: TooltipStateType = null;
+
     constructor() {
         super();
         this.initTemplate();
@@ -89,7 +92,7 @@ export abstract class Component extends HTMLElement {
 
         return {template, matches};
     }
-    
+
     updateBindings(prop: string, value: unknown = ''): void {
         const bindings = [...Array.from(this.selectAll(`[data-bind$="${prop}"]`))];
 
